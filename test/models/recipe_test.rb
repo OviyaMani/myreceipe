@@ -3,9 +3,8 @@ require 'test_helper'
 class RecipeTest < ActiveSupport::TestCase
   
   def setup
-  @chef = Chef.create!(chefname: "mashrur", email: "mashrur@example.com")
-  @recipe = @chef.recipes.build(name: "vegetable", description: "great vegetable recipe")  
-  end
+ @chef = Chef.create!(chefname: "mashrur", email: "mashrur@example.com",
+                    password: "password", password_confirmation: "password") end
   
   test "recipe should be valid" do
     assert @recipe.valid?
