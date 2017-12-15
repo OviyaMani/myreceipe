@@ -6,4 +6,8 @@
   </div>
 </div>
 
-<h4 align="center"><%= @chef.chefname %>'s recipes</h4>
+<h4 align="center"><%=  @chef.chefname  %>'s recipes</h4>
+
+
+<%= render 'recipes/recipes', obj: @chef.recipes %>
+

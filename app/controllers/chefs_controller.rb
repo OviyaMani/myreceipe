@@ -22,7 +22,7 @@ class ChefsController < ApplicationController
   end
   
   def show
-    @chef = Chef.find(params[:id])
+   @chef_recipes=Chef.all
   end
   
   def edit
@@ -36,13 +36,15 @@ class ChefsController < ApplicationController
       render 'edit'
     end  
   end
-  
+
+
   def destroy
-    @chef.destroy
-    flash[:danger] = "Chef and all associated recipes have been deleted!"
-    redirect_to chefs_path
-  end
-  
+  @chef = Chef.find(params[:id])
+  @chef.destroy
+  flash[:danger] = "Chef and all associated recipes have been deleted"
+  session[:chef_id] = nil
+  redirect_to chefs_path
+end
   private
   
   def chef_params
